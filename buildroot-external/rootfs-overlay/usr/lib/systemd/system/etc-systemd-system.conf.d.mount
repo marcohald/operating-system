@@ -1,0 +1,14 @@
+[Unit]
+# Description=system.conf.d directory
+Requires=mnt-overlay.mount
+After=mnt-overlay.mount hassos-overlay.service
+Before=hassos-config.service
+
+[Mount]
+What=/mnt/overlay/etc/systemd/system.conf.d
+Where=/etc/systemd/system.conf.d
+Type=None
+Options=bind
+
+[Install]
+WantedBy=hassos-bind.target
